@@ -8,10 +8,16 @@ const columns = [
   { key: 'focus', label: 'Focus' },
 ]
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+const endpoint = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev/api/workouts/`
+  : '/api/workouts/'
+
 export default function Workouts() {
   return (
     <CollectionPage
       resource="workouts"
+      endpoint={endpoint}
       title="Workouts"
       description="Find a focused session for your next training day."
       columns={columns}

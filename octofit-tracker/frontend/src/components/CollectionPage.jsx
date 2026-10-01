@@ -17,7 +17,7 @@ function formatValue(value) {
   return value
 }
 
-export default function CollectionPage({ resource, title, description, columns }) {
+export default function CollectionPage({ resource, endpoint, title, description, columns }) {
   const [collection, setCollection] = useState({ items: [], count: 0 })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
@@ -26,7 +26,7 @@ export default function CollectionPage({ resource, title, description, columns }
   useEffect(() => {
     const controller = new AbortController()
 
-    fetchCollection(resource, controller.signal)
+    fetchCollection(endpoint, controller.signal)
       .then(setCollection)
       .catch((requestError) => {
         if (requestError.name !== 'AbortError') setError(requestError.message)
@@ -36,7 +36,7 @@ export default function CollectionPage({ resource, title, description, columns }
       })
 
     return () => controller.abort()
-  }, [resource, reloadCount])
+  }, [resource, endpoint, reloadCount])
 
   return (
     <section className="collection-page" aria-labelledby="collection-title">

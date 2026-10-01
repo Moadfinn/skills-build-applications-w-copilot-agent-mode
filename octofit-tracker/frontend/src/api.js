@@ -1,12 +1,3 @@
-const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
-const apiOrigin = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev`
-  : ''
-
-export function getCollectionUrl(resource) {
-  return `${apiOrigin}/api/${resource}/`
-}
-
 function readCollection(payload) {
   if (Array.isArray(payload)) {
     return { items: payload, count: payload.length }
@@ -37,8 +28,8 @@ function readCollection(payload) {
   return { items: [], count: payload.count ?? payload.total ?? 0 }
 }
 
-export async function fetchCollection(resource, signal) {
-  const response = await fetch(getCollectionUrl(resource), { signal })
+export async function fetchCollection(endpoint, signal) {
+  const response = await fetch(endpoint, { signal })
   if (!response.ok) {
     throw new Error(`Request failed (${response.status})`)
   }
