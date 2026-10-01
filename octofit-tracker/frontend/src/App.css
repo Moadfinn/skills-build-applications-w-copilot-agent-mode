@@ -200,6 +200,34 @@
   background: rgba(255, 255, 255, 0.72);
 }
 
+.section-nav {
+  min-height: 49px;
+  padding: 0 clamp(20px, 5vw, 72px);
+  display: flex;
+  align-items: stretch;
+  gap: 26px;
+  overflow-x: auto;
+  border-bottom: 1px solid #dfe4dc;
+  background: #fff;
+}
+
+.section-nav a {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border-bottom: 2px solid transparent;
+  color: #69756b;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-nav a:hover,
+.section-nav a.active {
+  color: #26332a;
+  border-bottom-color: #e24c34;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -379,6 +407,81 @@
   font-weight: 700;
 }
 
+.collection-page {
+  animation: rise-in 480ms ease-out both;
+}
+
+.collection-heading {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.collection-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+.collection-heading h1 {
+  margin: 0 0 9px;
+  color: #202923;
+  font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.collection-count {
+  flex: 0 0 auto;
+  padding-bottom: 5px;
+  color: #68746b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.collection-sheet {
+  overflow: hidden;
+  border: 1px solid #dce2d9;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.collection-table {
+  min-width: 560px;
+  color: #354239;
+  font-size: 13px;
+}
+
+.collection-table th {
+  padding: 15px 18px;
+  border-bottom-color: #e7ebe5;
+  color: #778078;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.collection-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+.collection-message {
+  margin: 0;
+  padding: 24px;
+  color: #667168;
+  font-size: 14px;
+}
+
+.collection-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #a4382c;
+}
+
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -395,6 +498,10 @@
 
   .dashboard {
     padding-top: 50px;
+  }
+
+  .section-nav {
+    gap: 20px;
   }
 
   .intro {
@@ -418,6 +525,21 @@
 
   .dashboard-footer {
     font-size: 8px;
+  }
+
+  .collection-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .collection-heading h1 {
+    font-size: 36px;
+  }
+
+  .collection-error {
+    align-items: start;
+    flex-direction: column;
   }
 }
 
